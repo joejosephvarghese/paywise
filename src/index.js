@@ -3,28 +3,27 @@ import dotenv from "dotenv";
 import sequelize from "./models/connection.js";
 import Routes from "./routes/index.js";
 
-dotenv.config(); 
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use("/v1", Routes);
 
-
-sequelize.authenticate()
+sequelize
+  .authenticate()
   .then(() => {
     console.log(` Database Connected`);
-    return sequelize.sync({ alter: true });
+    console.log("Logging config:", sequelize.options.logging);
+
+    return sequelize.sync({ alter: true, logging: false });
   })
   .then(() => {
     console.log(" All models synchronized");
 
-    
     app.listen(port, () => {
       console.log(` Server listening on port ${port}`);
     });

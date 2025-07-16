@@ -3,6 +3,8 @@ import { User } from "../models/index.js";
 
 const register = async (req, res) => {
   try {
+
+    console.log("hit hrer");
     const { email, firstName, lastName } = req.body;
 
     const user = await User.findOne({ where: { email } });
