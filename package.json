@@ -11,9 +11,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "amqplib": "^0.10.8",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "pg": "^8.16.3",
     "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
