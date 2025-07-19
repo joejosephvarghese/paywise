@@ -11,4 +11,9 @@ const addCategory = async (req, res) => {
   }
 };
 
-export { addCategory };
+
+const editCategory =async(req,res)=>{
+
+}
+
+export { addCategory,editCategory };

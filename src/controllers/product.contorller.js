@@ -4,6 +4,8 @@ import { Category, Product } from "../models/index.js";
 const addProduct = async (req, res) => {
   try {
     await Product.create(req.body);
+
+    console.log("change some feature");
     res.status(200).json("ok");
   } catch (error) {
     res.status(400).json({ message: error.message });
